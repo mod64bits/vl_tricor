@@ -1,0 +1,95 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title_container %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="icon nalika-home"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Produtos</h2>
+                                    <p>Welcome <span class="bread-ntd">Usuário</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-report">
+                                <button data-toggle="tooltip" data-placement="left" title="Download Report"
+                                        class="btn"><i class="icon nalika-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock title_container %}
+
+{% block container %}
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="product-status mg-b-30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="product-status-wrap">
+                                    <h4>Products List</h4>
+                                    <div class="add-product">
+                                        <a href="{% url 'product:product_new' %}">Novo Produto</a>
+                                    </div>
+                                    <table>
+                                        <tr>
+                                            <th>Imagem</th>
+                                            <th>Nome</th>
+                                            <th>Status</th>
+                                            <th>Quantidade</th>
+                                            <th>Quantidade Vendida</th>
+                                            <th>Preço</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                        {% for product in  products %}
+                                            <tr>
+                                                <td><img src="{% static 'home/img/new-product/5-small.jpg' %}" alt=""/>
+                                                </td>
+                                                <td>{{ product.name }}</td>
+                                                <td>
+                                                    <button class="pd-setting">Em Estoque</button>
+                                                </td>
+                                                <td>50</td>
+                                                <td>1</td>
+                                                <td>R$: {{ product.value }}</td>
+                                                <td>
+                                                    <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
+                                                            class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </button>
+                                                    <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
+                                                            class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                    <div class="custom-pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock container %}

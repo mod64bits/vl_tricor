@@ -1,0 +1,39 @@
+<div class="left-custom-menu-adp-wrap comment-scrollbar">
+    <nav class="sidebar-nav left-sidebar-menu-pro">
+        <ul class="metismenu" id="menu1">
+            <li class="active">
+                <a class="has-arrow" href="index.html">
+                    <i class="icon nalika-home icon-wrap"></i>
+                    <span class="mini-click-non">Clientes</span>
+                </a>
+                <ul class="submenu-angle" aria-expanded="true">
+                    <li><a title="Dashboard v.1" href="{% url 'customer:customer_list' %}"><span
+                            class="mini-sub-pro">Lista</span></a></li>
+                    <li><a title="Dashboard v.2" href="{% url 'customer:customer_new' %}"><span
+                            class="mini-sub-pro">Novo</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i
+                        class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">Produtos</span></a>
+                <ul class="submenu-angle" aria-expanded="false">
+                    <li><a title="View Mail" href="{% url 'product:product_list' %}"><span
+                            class="mini-sub-pro">Lista</span></a></li>
+                    <li><a title="Compose Mail" href="mailbox-compose.html"><span
+                            class="mini-sub-pro">Novo</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i
+                        class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Vendas</span></a>
+                <ul class="submenu-angle" aria-expanded="false">
+                    <li><a title="Google Map" href="google-map.html"><span
+                            class="mini-sub-pro">Lista</span></a></li>
+                    <li><a title="Data Maps" href="data-maps.html"><span
+                            class="mini-sub-pro">Nova</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
