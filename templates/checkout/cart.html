@@ -1,0 +1,121 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'home/css/select2/select2.min.css' %}">
+{% endblock css %}
+
+{% block title_container %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="icon nalika-home"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Produtos</h2>
+                                    <p>Welcome <span class="bread-ntd">Usuário</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-report">
+                                <button data-toggle="tooltip" data-placement="left" title="Download Report"
+                                        class="btn"><i class="icon nalika-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock title_container %}
+
+{% block container %}
+    <div class="product-cart-area mg-b-30">
+        <form class="" action="" method="post">
+            {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-cart-inner">
+                            <div id="example-basic">
+                                <h3>Selecione o Cliente</h3>
+                                <section>
+                                    <h3 class="product-cart-dn">Shopping</h3>
+                                    <div class="product-list-cart">
+                                        <div class="product-status-wrap border-pdt-ct">
+                                            <table>
+
+                                                <tr>
+                                                    <th>Código</th>
+                                                    <th>Image</th>
+                                                    <th>Product Title</th>
+                                                    <th>Quality</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                {{ formset.management_form }}
+                                                {% for form in formset %}
+                                                    {% for hidden in form.hidden_fields %}
+                                                        {{ hidden }}
+                                                    {% endfor %}
+                                                    <tr>
+                                                        <td>{{ form.instance.product.pk }}</td>
+                                                        <td><img src="{% static 'home/img/product/1.jpg' %}" alt=""/>
+                                                        </td>
+                                                        <td>
+                                                            <h3>{{ form.instance.product }}</h3>
+                                                        </td>
+                                                        <td>
+                                                            {{ form.quantity|attr:"class:form-control" }}
+                                                        </td>
+                                                        <td>R$ {{ form.instance.price|floatformat:"2" }}</td>
+                                                        <td>
+                                                            <button value="on" type="submit"
+                                                                    name="{{ form.DELETE.html_name }}"
+                                                                    class="pd-setting-ed"><i
+                                                                    class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </button>
+                                                            {{ form.id }}
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="product-confarmation">
+                                        <h2>Congratulations! Your Order is accepted.</h2>
+                                        <div class="chosen-select-single mg-b-20">
+                                            <label>Basic Select</label>
+                                            <select name="select-cliente" class="select2_demo_3 form-control">
+                                                <option>Select</option>
+                                                {% for cliente in clientes %}
+                                                    <option value="{{ cliente.id }}">{{ cliente.name }}</option>
+                                                {% endfor %}
+
+                                            </select>
+                                        </div>
+                                        <button name="atualizar" value="atualizar" type="submit" class="btn btn-primary m-y">Atualizar</button>
+                                        <button name="venda" value="venda" type="submit" class="btn btn-primary m-y">Gerar Venda</button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock container %}
+{% block scripts %}
+    <script src="{% static 'home/js/select2/select2.full.min.js' %}"></script>
+    <script src="{% static 'home/js/select2/select2-active.js' %}"></script>
+{% endblock scripts %}

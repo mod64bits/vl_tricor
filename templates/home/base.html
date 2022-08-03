@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -63,6 +63,8 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{% static 'home/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    {% block css %}
+    {% endblock css %}
 </head>
 
 <body>
@@ -205,7 +207,7 @@
                                                 <div role="menu"
                                                      class="notification-author dropdown-menu animated zoomIn">
                                                     <div class="notification-single-top">
-                                                        <h1>Notifications</h1>
+                                                        <a href="{% url 'checkout:sales' %}"> <h1>Venda</h1></a>
                                                     </div>
                                                     <ul class="notification-menu">
                                                         <li>
@@ -1089,12 +1091,21 @@
 <script src="{% static 'home/js/flot/jquery.flot.orderBars.js' %}"></script>
 <script src="{% static 'home/js/flot/curvedLines.js' %}"></script>
 <script src="{% static 'home/js/flot/flot-active.js' %}"></script>
+<script src="{% static 'home/js/tab.js' %}"></script>
+ <!-- wizard JS
+		============================================ -->
+    <script src="{% static 'home/js/wizard/jquery.steps.js' %}"></script>
+    <script src="{% static 'home/js/wizard/steps-active.js' %}"></script>
+
 <!-- plugins JS
 		============================================ -->
 <script src="{% static 'home/js/plugins.js' %}"></script>
 <!-- main JS
 		============================================ -->
 <script src="{% static 'home/js/main.js' %}"></script>
+{% block scripts %}
+
+{% endblock scripts %}
 </body>
 
 </html>
