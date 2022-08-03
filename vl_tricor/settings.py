@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.home',
     'apps.products',
-    'apps.customers'
+    'apps.customers',
+    'apps.checkout',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 

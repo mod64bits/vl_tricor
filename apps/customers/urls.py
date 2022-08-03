@@ -5,5 +5,5 @@ app_name = 'customer'
 
 urlpatterns = [
     path('', CustomerListView.as_view(), name='customer_list'),
-    path('/novo/', CustomerNewView.as_view(), name='customer_new'),
+    path('novo/', CustomerNewView.as_view(), name='customer_new'),
 ]
